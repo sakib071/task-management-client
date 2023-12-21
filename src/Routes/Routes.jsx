@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../pages/Dashboard/All Users/AllUsers";
 import AdminRoute from "../providers/AdminRoute";
 import AddTask from "../pages/AddTask/AddTask";
+import Profile from "../pages/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "addTask",
                 element: <AddTask></AddTask>
+            },
+            {
+                path: "profile",
+                element: <Profile></Profile>
             }
         ]
     },
