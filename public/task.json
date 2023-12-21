@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "text": "If a dog chews shoes whose shoes does he choose?",
+        "completed": true,
+        "priority": "Low",
+        "bg": "bg-yellow-100",
+        "text-color": "text-yellow-500",
+        "day": "today"
+    },
+    {
+        "id": 2,
+        "text": "Another task",
+        "completed": false,
+        "priority": "Moderate",
+        "bg": "bg-blue-100",
+        "text-color": "text-blue-500",
+        "day": "yesterday"
+    },
+    {
+        "id": 3,
+        "text": "Task 3: This is a sample task.",
+        "completed": true,
+        "priority": "High",
+        "bg": "bg-red-100",
+        "text-color": "text-red-500",
+        "day": "tomorrow"
+    },
+    {
+        "id": 4,
+        "text": "Task 4: This is a sample task.",
+        "completed": false,
+        "priority": "Low",
+        "bg": "bg-yellow-100",
+        "text-color": "text-yellow-500",
+        "day": "today"
+    },
+    {
+        "id": 5,
+        "text": "Task 5: This is a sample task.",
+        "completed": true,
+        "priority": "Moderate",
+        "bg": "bg-blue-100",
+        "text-color": "text-blue-500",
+        "day": "yesterday"
+    },
+    {
+        "id": 6,
+        "text": "Task 6: This is a sample task.",
+        "completed": false,
+        "priority": "High",
+        "bg": "bg-red-100",
+        "text-color": "text-red-500",
+        "day": "tomorrow"
+    },
+    {
+        "id": 7,
+        "text": "Task 7: This is a sample task.",
+        "completed": true,
+        "priority": "Low",
+        "bg": "bg-yellow-100",
+        "text-color": "text-yellow-500",
+        "day": "today"
+    },
+    {
+        "id": 8,
+        "text": "Task 8: This is a sample task.",
+        "completed": false,
+        "priority": "Moderate",
+        "bg": "bg-blue-100",
+        "text-color": "text-blue-500",
+        "day": "yesterday"
+    },
+    {
+        "id": 9,
+        "text": "Task 9: This is a sample task.",
+        "completed": true,
+        "priority": "High",
+        "bg": "bg-red-100",
+        "text-color": "text-red-500",
+        "day": "tomorrow"
+    },
+    {
+        "id": 10,
+        "text": "Task 10: This is a sample task.",
+        "completed": false,
+        "priority": "Low",
+        "bg": "bg-yellow-100",
+        "text-color": "text-yellow-500",
+        "day": "today"
+    }
+]

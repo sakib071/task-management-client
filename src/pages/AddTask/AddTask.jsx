@@ -63,10 +63,9 @@ const AddTask = () => {
                         <select defaultValue="default" {...register('priority', { required: true })}
                             className="select select-sm select-bordered w-full">
                             <option disabled value="default">Set priority</option>
-                            <option value="Technology">Technology</option>
-                            <option value="Food">Food</option>
-                            <option value="Health">Health</option>
-                            <option value="Work">Work</option>
+                            <option value="Low">Low</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="High">High</option>
                         </select>
                     </div>
                 </div>
