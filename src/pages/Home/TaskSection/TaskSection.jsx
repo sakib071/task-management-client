@@ -8,17 +8,13 @@ const TaskSection = () => {
         fetch('http://localhost:5000/tasks')
             .then(res => res.json())
             .then(data => {
-                const filterCompleted = data.filter(task => task.completed);
-                const filterOngoing = data.filter(task => !task.completed && task.day === 'Today');
-                const filterUpcoming = data.filter(task => !task.completed && task.day === 'Tomorrow');
-
-                setTasks({
-                    completed: filterCompleted,
-                    ongoing: filterOngoing,
-                    upcoming: filterUpcoming,
-                });
+                setTasks(data);
             });
     }, []);
+
+    const updateTasks = (updatedTasks) => {
+        setTasks(updatedTasks);
+    };
 
     return (
         <div className="mt-32">
@@ -26,15 +22,15 @@ const TaskSection = () => {
             <div className="flex gap-5 mt-10 justify-center">
                 <div>
                     <h3 className="card-title">Completed</h3>
-                    <TaskCard tasks={tasks.completed} />
+                    <TaskCard tasks={tasks.filter(task => task.completed)} updateTasks={updateTasks} />
                 </div>
                 <div>
                     <h3 className="card-title">On-Going</h3>
-                    <TaskCard tasks={tasks.ongoing} />
+                    <TaskCard tasks={tasks.filter(task => !task.completed && task.day === 'Today')} updateTasks={updateTasks} />
                 </div>
                 <div>
                     <h3 className="card-title">Upcoming</h3>
-                    <TaskCard tasks={tasks.upcoming} />
+                    <TaskCard tasks={tasks.filter(task => !task.completed && task.day === 'Tomorrow')} updateTasks={updateTasks} />
                 </div>
             </div>
         </div>

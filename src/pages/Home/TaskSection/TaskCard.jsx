@@ -1,11 +1,7 @@
-import { useState } from "react";
 
-const TaskCard = ({ tasks }) => {
-    const [completedTasks, setCompletedTasks] = useState([]);
-
+const TaskCard = ({ tasks, updateTasks }) => {
     const onToggleTaskCompletion = (taskId) => {
-        console.log(taskId);
-        setCompletedTasks((prevTasks) =>
+        updateTasks((prevTasks) =>
             prevTasks.map((task) =>
                 task.id === taskId ? { ...task, completed: !task.completed } : task
             )
@@ -14,11 +10,11 @@ const TaskCard = ({ tasks }) => {
 
     return (
         <div className="flex gap-10 mt-5 justify-center">
-            <div className="w-96 border-2 rounded-md">
+            <div className="w-96 shadow-md rounded-md">
                 <div className="p-5 space-y-5">
                     {tasks && tasks.length > 0 ? (
                         tasks.map((task) => (
-                            <div key={task.id}>
+                            <div key={task.id} className="p-2 rounded-md shadow-md">
                                 <div className="flex items-center gap-5">
                                     <input
                                         type="checkbox"

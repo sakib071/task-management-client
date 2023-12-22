@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const [isAdmin] = useAdmin();
 
 
     const handleLogOut = () => {
@@ -16,11 +14,11 @@ const Navbar = () => {
     }
     const navOptions = <div className="flex items-center gap-5">
         <li className="hover:text-red-600 "><Link to='/'>Home</Link></li>
-        <li className="hover:text-red-600"><Link to='/addTask'>Add Task</Link></li>
-        <li className="hover:text-red-600"><Link to='/profile'>Profile</Link></li>
-        <li className="hover:text-red-600"><Link to='/dashboard'>Dashboard</Link></li>
         {
-            user && isAdmin && <li className="hover:text-black"><Link to='/dashboard/adminHome'>Dashboard</Link></li>
+            user && <li className="hover:text-red-600"><Link to='/addTask'>Add Task</Link></li>
+        }
+        {
+            user && <li className="hover:text-red-600"><Link to='/dashboard'>Dashboard</Link></li>
         }
         {
             user ? <div className="flex items-center gap-5">
