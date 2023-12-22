@@ -5,7 +5,7 @@ const TaskSection = () => {
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tasks')
+        fetch('https://task-manager-server-tawny.vercel.app/tasks')
             .then(res => res.json())
             .then(data => {
                 setTasks(data);
