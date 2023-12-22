@@ -18,7 +18,7 @@ const Navbar = () => {
             user && <li className="hover:text-red-600"><Link to='/addTask'>Add Task</Link></li>
         }
         {
-            user && <li className="hover:text-red-600"><Link to='/dashboard'>Dashboard</Link></li>
+            user && <li className="hover:text-red-600"><Link to='/dashboard/profile'>Dashboard</Link></li>
         }
         {
             user ? <div className="flex items-center gap-5">

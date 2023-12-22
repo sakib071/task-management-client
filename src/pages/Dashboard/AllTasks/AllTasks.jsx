@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-
 import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
@@ -16,7 +15,7 @@ const AllTasks = () => {
         }
     });
 
-    const handleDelete = tasks => {
+    const handleDelete = task => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -27,7 +26,7 @@ const AllTasks = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/users/${tasks._id}`)
+                axiosPublic.delete(`/tasks/${task._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
