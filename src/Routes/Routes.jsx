@@ -31,11 +31,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: "addTask",
-                element: <AddTask></AddTask>
+                element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
             },
             {
                 path: "profile",
-                element: <Profile></Profile>
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
+                path: "dashboard",
+                element: <Dashboard></Dashboard>
             }
         ]
     },
@@ -46,6 +50,14 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: "addTask",
+                element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
+            },
+            {
+                path: "profile",
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
             }
         ]
     }

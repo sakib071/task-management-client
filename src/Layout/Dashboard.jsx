@@ -1,4 +1,5 @@
-import { FaEnvelope, FaHome, FaSearch } from "react-icons/fa";
+import { FaHome, FaTasks } from "react-icons/fa";
+import { IoMdAddCircle } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
 
 
@@ -7,24 +8,27 @@ const Dashboard = () => {
     return (
         <div className="flex">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-[#D1A054] text-white pt-10">
-                <ul className="menu p-4">
-                    {/* shared nav links */}
-                    <div className="divider"></div>
+            <div className="w-64 min-h-screen bg-red-500 text-white pt-32">
+                <ul className="menu p-4 text-lg">
                     <li>
                         <NavLink to="/">
                             <FaHome></FaHome>
                             Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/order/salad">
-                            <FaSearch></FaSearch>
-                            Menu</NavLink>
+                        <NavLink to="/dashboard/addTask">
+                            <IoMdAddCircle />
+                            Add New Task</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/order/contact">
-                            <FaEnvelope></FaEnvelope>
-                            Contact</NavLink>
+                        <NavLink to="/dashboard/allTask">
+                            <FaTasks />
+                            All Task</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/profile">
+                            <FaTasks />
+                            Profile</NavLink>
                     </li>
                 </ul>
             </div>

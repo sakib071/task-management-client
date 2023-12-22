@@ -18,6 +18,7 @@ const Navbar = () => {
         <li className="hover:text-red-600 "><Link to='/'>Home</Link></li>
         <li className="hover:text-red-600"><Link to='/addTask'>Add Task</Link></li>
         <li className="hover:text-red-600"><Link to='/profile'>Profile</Link></li>
+        <li className="hover:text-red-600"><Link to='/dashboard'>Dashboard</Link></li>
         {
             user && isAdmin && <li className="hover:text-black"><Link to='/dashboard/adminHome'>Dashboard</Link></li>
         }
