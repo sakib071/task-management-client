@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TaskCard = ({ tasks, updateTasks }) => {
     const onToggleTaskCompletion = (taskId) => {
@@ -6,6 +8,12 @@ const TaskCard = ({ tasks, updateTasks }) => {
                 task.id === taskId ? { ...task, completed: !task.completed } : task
             )
         );
+
+        const updatedTask = tasks.find((task) => task.id === taskId);
+
+        if (updatedTask.completed) {
+            toast.success("Task completed!");
+        }
     };
 
     return (
@@ -40,6 +48,7 @@ const TaskCard = ({ tasks, updateTasks }) => {
                     )}
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import { FaHome, FaTasks } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
-
+import { RxAvatar } from "react-icons/rx";
 
 const Dashboard = () => {
 
@@ -21,13 +21,13 @@ const Dashboard = () => {
                             Add New Task</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/allTask">
+                        <NavLink to="/dashboard/allTasks">
                             <FaTasks />
                             All Task</NavLink>
                     </li>
                     <li>
                         <NavLink to="/dashboard/profile">
-                            <FaTasks />
+                            <RxAvatar />
                             Profile</NavLink>
                     </li>
                 </ul>

@@ -1,22 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
 
 import Swal from 'sweetalert2';
-import { FaTrash, FaUsers } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 
-const AllUsers = () => {
+const AllTasks = () => {
     const axiosPublic = useAxiosPublic();
 
     const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['tasks'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/users');
+            const res = await axiosPublic.get('/tasks');
             return res.data;
         }
     });
 
-    const handleDelete = user => {
+    const handleDelete = tasks => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -27,7 +27,7 @@ const AllUsers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/users/${user._id}`)
+                axiosPublic.delete(`/users/${tasks._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
@@ -41,27 +41,12 @@ const AllUsers = () => {
             }
         });
     }
-    const handleMakeAdmin = user => {
-        axiosPublic.patch(`/users/admin/${user._id}`)
-            .then(res => {
-                console.log(res.data);
-                if (res.data.modifiedCount > 0) {
-                    refetch();
-                    Swal.fire({
-                        title: "Deleted!",
-                        text: `${user.name} is an admin now`,
-                        icon: "success"
-                    });
-                }
-            })
-    }
 
     return (
         <div className="mt-5">
-            <div className="flex justify-evenly items-center mb-6">
-                <h3>Total Users: <span className="font-bold">{users.length}</span></h3>
+            <div className="flex text-lg mb-6">
+                <h3>Total tasks: <span className="font-bold">{users.length}</span></h3>
                 {/* <h3>Total Price: <span className="font-bold">${totalPrice}</span> </h3> */}
-                <button className="btn btn-neutral btn-xs px-5 rounded-md">Pay</button>
             </div>
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -69,31 +54,33 @@ const AllUsers = () => {
                     <thead>
                         <tr>
                             <th>Sl.</th>
-                            <th>User Email</th>
-                            <th>User Name</th>
-                            <th>Role</th>
+                            <th>Task name</th>
+                            <th>Description</th>
+                            <th>Priority</th>
+                            <th>Time</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            users.map((user, index) => <tr key={user?._id}>
+                            users.map((task, index) => <tr key={task?._id}>
                                 <th>
                                     <p>{index + 1}</p>
                                 </th>
                                 <td>
-                                    <div className="font-bold">{user?.email}</div>
+                                    <div className="font-bold">{task?.title}</div>
                                 </td>
                                 <td>
-                                    <div className="font-bold">{user?.name}</div>
+                                    <div className="">{task?.description}</div>
+                                </td>
+                                <td>
+                                    <div className={`${task.bg} ${task["textColor"]} font-semibold text-xs py-1 px-2 w-fit rounded-md`}>{task?.priority}</div>
+                                </td>
+                                <td>
+                                    <div className="font-bold">{task?.day}</div>
                                 </td>
                                 <th>
-                                    {
-                                        user.role === 'admin' ? 'Admin' : <button onClick={() => handleMakeAdmin(user)} className="btn btn-error btn-square bg-[#D1A054] border-0 text-white text-2xl"><FaUsers></FaUsers></button>
-                                    }
-                                </th>
-                                <th>
-                                    <button onClick={() => handleDelete(user)} className="btn btn-error btn-square text-white text-lg"><FaTrash></FaTrash></button>
+                                    <button onClick={() => handleDelete(task)} className="btn btn-error btn-sm bg-red-500 btn-square text-white text-md rounded-md"><FaTrash></FaTrash></button>
                                 </th>
                             </tr>)
                         }
@@ -105,4 +92,4 @@ const AllUsers = () => {
     );
 };
 
-export default AllUsers;
+export default AllTasks;

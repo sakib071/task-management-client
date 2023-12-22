@@ -22,7 +22,7 @@ const TaskSection = () => {
             <div className="flex gap-5 mt-10 justify-center">
                 <div>
                     <h3 className="card-title">Completed</h3>
-                    <TaskCard tasks={tasks.filter(task => task.completed)} updateTasks={updateTasks} />
+                    <TaskCard tasks={tasks.filter(task => task.completed || task.day === 'Yesterday')} updateTasks={updateTasks} />
                 </div>
                 <div>
                     <h3 className="card-title">On-Going</h3>

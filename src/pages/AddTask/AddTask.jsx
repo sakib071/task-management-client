@@ -19,7 +19,7 @@ const AddTask = () => {
                 description: data.description,
                 day: data.day,
                 completed: false,
-                ...priorityColors[data.priority], // Dynamically set colors based on priority
+                ...priorityColors[data.priority],
             };
 
             const surveyRes = await axiosPublic.post("/tasks", newTask);

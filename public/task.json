@@ -1,7 +1,7 @@
 [
     {
-        "id": 1,
-        "text": "If a dog chews shoes whose shoes does he choose?",
+        "title": "Dog Chews",
+        "description": "If a dog chews shoes whose shoes does he choose?",
         "completed": true,
         "priority": "Low",
         "bg": "bg-yellow-100",
@@ -9,8 +9,8 @@
         "day": "Today"
     },
     {
-        "id": 2,
-        "text": "Another task",
+        "title": "Another Task",
+        "description": "Another task",
         "completed": false,
         "priority": "Moderate",
         "bg": "bg-blue-100",
@@ -18,8 +18,8 @@
         "day": "Yesterday"
     },
     {
-        "id": 3,
-        "text": "Task 3: This is a sample task.",
+        "title": "Sample Task 3",
+        "description": "Task 3: This is a sample task.",
         "completed": true,
         "priority": "High",
         "bg": "bg-red-100",
@@ -27,8 +27,8 @@
         "day": "Tomorrow"
     },
     {
-        "id": 4,
-        "text": "Task 4: This is a sample task.",
+        "title": "Sample Task 4",
+        "description": "Task 4: This is a sample task.",
         "completed": false,
         "priority": "Low",
         "bg": "bg-yellow-100",
@@ -36,8 +36,8 @@
         "day": "Today"
     },
     {
-        "id": 5,
-        "text": "Task 5: This is a sample task.",
+        "title": "Sample Task 5",
+        "description": "Task 5: This is a sample task.",
         "completed": true,
         "priority": "Moderate",
         "bg": "bg-blue-100",
@@ -45,8 +45,8 @@
         "day": "Yesterday"
     },
     {
-        "id": 6,
-        "text": "Task 6: This is a sample task.",
+        "title": "Sample Task 6",
+        "description": "Task 6: This is a sample task.",
         "completed": false,
         "priority": "High",
         "bg": "bg-red-100",
@@ -54,8 +54,8 @@
         "day": "Tomorrow"
     },
     {
-        "id": 7,
-        "text": "Task 7: This is a sample task.",
+        "title": "Sample Task 7",
+        "description": "Task 7: This is a sample task.",
         "completed": true,
         "priority": "Low",
         "bg": "bg-yellow-100",
@@ -63,8 +63,8 @@
         "day": "Today"
     },
     {
-        "id": 8,
-        "text": "Task 8: This is a sample task.",
+        "title": "Sample Task 8",
+        "description": "Task 8: This is a sample task.",
         "completed": false,
         "priority": "Moderate",
         "bg": "bg-blue-100",
@@ -72,8 +72,8 @@
         "day": "Yesterday"
     },
     {
-        "id": 9,
-        "text": "Task 9: This is a sample task.",
+        "title": "Sample Task 9",
+        "description": "Task 9: This is a sample task.",
         "completed": true,
         "priority": "High",
         "bg": "bg-red-100",
@@ -81,8 +81,8 @@
         "day": "Tomorrow"
     },
     {
-        "id": 10,
-        "text": "Task 10: This is a sample task.",
+        "title": "Sample Task 10",
+        "description": "Task 10: This is a sample task.",
         "completed": false,
         "priority": "Low",
         "bg": "bg-yellow-100",
