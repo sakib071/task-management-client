@@ -1,16 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import { FaTrash } from 'react-icons/fa';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 
 const AllTasks = () => {
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
 
     const { data: users = [], refetch } = useQuery({
         queryKey: ['tasks'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/tasks');
+            const res = await axiosSecure.get('/tasks');
             return res.data;
         }
     });
@@ -26,8 +26,9 @@ const AllTasks = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/tasks/${task._id}`)
+                axiosSecure.delete(`/tasks/${task._id}`)
                     .then(res => {
+                        console.log("Delete Response: ", res.data);
                         if (res.data.deletedCount > 0) {
                             refetch();
                             Swal.fire({
