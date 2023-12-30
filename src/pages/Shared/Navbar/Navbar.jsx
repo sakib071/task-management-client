@@ -14,9 +14,9 @@ const Navbar = () => {
     }
     const navOptions = <div className="flex items-center gap-5">
         <li className="hover:text-red-600 "><Link to='/'>Home</Link></li>
-        {
+        {/* {
             user && <li className="hover:text-red-600"><Link to='/addTask'>Add Task</Link></li>
-        }
+        } */}
         {
             user && <li className="hover:text-red-600"><Link to='/dashboard/profile'>Dashboard</Link></li>
         }
@@ -42,7 +42,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center gap-3">
                     <img className="w-6 h-6" src="../../../../public/logo.png" alt="" />
-                    <a className="normal-case font-semibold text-xl">Task Manger</a>
+                    <a className="normal-case font-semibold text-xl">Task Manager</a>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

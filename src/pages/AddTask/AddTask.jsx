@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const AddTask = () => {
     const { user } = useContext(AuthContext);
-    console.log(user.email);
+    console.log(user?.email);
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
     const onSubmit = async (data) => {
@@ -44,64 +44,48 @@ const AddTask = () => {
     };
 
     return (
-        <div className="min-h-screen pt-32">
-            <form onSubmit={handleSubmit(onSubmit)} className="w-1/3 mx-auto mt-10 p-10 rounded-md shadow-md">
-                <h3 className=" text-2xl font-semibold">Add New Task</h3>
+        <div className="pt-20">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-1/3 mx-auto space-y-3 mt-10 p-5 rounded-md shadow-md">
+                {/* <h3 className=" text-2xl font-semibold">Add New Task</h3> */}
                 <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text">Task</span>
-                    </label>
                     <input
                         type="title"
                         placeholder="Task Name"
                         {...register('title', { required: true })}
                         required
-                        className="input input-sm input-bordered w-full" />
+                        className="input input-sm rounded-sm w-full" />
                 </div>
                 <div className="form-control w-full">
-                    <label className="label">
-                        <span className="label-text">Description</span>
-                    </label>
                     <input
                         type="text"
                         placeholder="Description"
                         {...register('description', { required: true })}
                         required
-                        className="input input-sm input-bordered w-full" />
+                        className="input input-sm rounded-sm w-full" />
                 </div>
                 <div className="flex gap-6">
-                    {/* category */}
                     <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Priority</span>
-                        </label>
                         <select defaultValue="default" {...register('priority', { required: true })}
-                            className="select select-sm select-bordered w-full">
+                            className="select select-sm rounded-sm">
                             <option disabled value="default">Set Priority</option>
                             <option value="Low">Low</option>
                             <option value="Moderate">Moderate</option>
                             <option value="High">High</option>
                         </select>
                     </div>
-                </div>
-                <div className="flex gap-6">
-                    {/* category */}
                     <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Day</span>
-                        </label>
                         <select defaultValue="default" {...register('day', { required: true })}
-                            className="select select-sm select-bordered w-full">
+                            className="select select-sm rounded-sm">
                             <option disabled value="default">Set Day</option>
                             <option value="Today">Today</option>
                             <option value="Tomorrow">Tomorrow</option>
                             <option value="Yesterday">Yesterday</option>
                         </select>
                     </div>
+                    <button className="btn btn-sm bg-red-600 hover:bg-slate-900 text-white">
+                        Add Task
+                    </button>
                 </div>
-                <button className="btn btn-sm bg-red-600 hover:bg-slate-900 text-white mt-5">
-                    Add Task
-                </button>
             </form>
         </div>
     );
