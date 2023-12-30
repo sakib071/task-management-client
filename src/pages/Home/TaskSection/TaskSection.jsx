@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TaskCard from "./TaskCard";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const TaskSection = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user?.email);
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
@@ -22,7 +25,7 @@ const TaskSection = () => {
     };
 
     return (
-        <div className="pt-32">
+        <div className="pt-32 mb-20 min-h-screen">
             <h3 className="text-3xl font-bold text-center border-b-4 w-fit mx-auto border-red-500">Tasks</h3>
             <div className="flex gap-5 mt-10 justify-center">
                 <div>

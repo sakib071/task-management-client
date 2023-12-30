@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useContext } from "react";
 
 const AddTask = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user.email);
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
     const onSubmit = async (data) => {
@@ -14,6 +18,7 @@ const AddTask = () => {
             };
 
             const newTask = {
+                email: user.email,
                 title: data.title,
                 priority: data.priority,
                 description: data.description,
@@ -40,7 +45,7 @@ const AddTask = () => {
 
     return (
         <div className="min-h-screen pt-32">
-            <form onSubmit={handleSubmit(onSubmit)} className="w-1/3 mx-auto mt-10">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-1/3 mx-auto mt-10 p-10 rounded-md shadow-md">
                 <h3 className=" text-2xl font-semibold">Add New Task</h3>
                 <div className="form-control w-full">
                     <label className="label">

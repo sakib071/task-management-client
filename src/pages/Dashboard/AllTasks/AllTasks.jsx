@@ -28,13 +28,14 @@ const AllTasks = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/tasks/${task._id}`)
                     .then(res => {
-                        console.log("Delete Response: ", res.data);
+                        // console.log("Delete Response: ", res.data);
                         if (res.data.deletedCount > 0) {
                             refetch();
                             Swal.fire({
                                 title: "Done!",
                                 text: "Your file has been deleted.",
-                                icon: "success"
+                                icon: "success",
+                                timer: 1000,
                             });
                         }
                     })

@@ -23,7 +23,7 @@ const Navbar = () => {
         {
             user ? <div className="flex items-center gap-5">
                 <span className="ml-4">{user?.displayName}</span>
-                <button onClick={handleLogOut} className="btn btn-error bg-red-500 text-white btn-sm">Log Out</button>
+                <button onClick={handleLogOut} className="btn btn-error bg-red-500 hover:bg-red-600 text-white btn-sm">Log Out</button>
             </div> : <>
                 <li className="hover:text-red-600"><Link to='/login'>Login</Link></li>
             </>

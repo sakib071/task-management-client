@@ -13,10 +13,17 @@ const TaskCard = ({ tasks, updateTasks }) => {
             const updatedTask = tasks.find((task) => task._id === taskId);
 
             if (updatedTask) {
-                toast.success("Task completed!");
+                if (!updatedTask.completed) {
+                    toast.success("Task completed!");
+                }
+                else {
+                    toast.info("Task marked as incomplete");
+                }
             }
         }
+
     };
+
 
     return (
         <div className="flex gap-10 mt-5 justify-center">
