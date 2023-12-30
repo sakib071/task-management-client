@@ -14,7 +14,7 @@ const Testimonials = () => {
     const [reviews, setReview] = useState([]);
 
     useEffect(() => {
-        fetch('https://task-manager-server-tawny.vercel.app/reviews')
+        fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => setReview(data))
     }, [])

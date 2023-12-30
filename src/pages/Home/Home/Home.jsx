@@ -9,7 +9,7 @@ const Home = () => {
             <Helmet>
                 <title>Task Manager | Home</title>
             </Helmet>
-            <Banner></Banner>
+            {/* <Banner></Banner> */}
             <TaskSection></TaskSection>
             <Testimonials></Testimonials>
         </div>

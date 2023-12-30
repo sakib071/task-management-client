@@ -3,16 +3,18 @@ import "react-toastify/dist/ReactToastify.css";
 
 const TaskCard = ({ tasks, updateTasks }) => {
     const onToggleTaskCompletion = (taskId) => {
-        updateTasks((prevTasks) =>
-            prevTasks.map((task) =>
-                task.id === taskId ? { ...task, completed: !task.completed } : task
-            )
-        );
+        console.log(taskId);
+        if (updateTasks) {
+            updateTasks((prevTasks) =>
+                prevTasks.map((task) =>
+                    task._id === taskId ? { ...task, completed: !task.completed } : task
+                )
+            );
+            const updatedTask = tasks.find((task) => task._id === taskId);
 
-        const updatedTask = tasks.find((task) => task.id === taskId);
-
-        if (updatedTask.completed) {
-            toast.success("Task completed!");
+            if (updatedTask) {
+                toast.success("Task completed!");
+            }
         }
     };
 
@@ -22,12 +24,13 @@ const TaskCard = ({ tasks, updateTasks }) => {
                 <div className="p-5 space-y-5">
                     {tasks && tasks.length > 0 ? (
                         tasks.map((task) => (
-                            <div key={task.id} className="p-2 rounded-md shadow-md">
+                            <div key={task._id} className="p-2 rounded-md shadow-md">
+                                {/* <p>Task id: {task._id}</p> */}
                                 <div className="flex items-center gap-5">
                                     <input
                                         type="checkbox"
                                         checked={task.completed}
-                                        onChange={() => onToggleTaskCompletion(task.id)}
+                                        onChange={() => onToggleTaskCompletion(task._id)}
                                         className="checkbox checkbox-xs rounded"
                                     />
                                     <div className="w-full">
