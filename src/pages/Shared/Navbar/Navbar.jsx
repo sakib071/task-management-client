@@ -44,7 +44,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex items-center gap-3">
-                    <img className="w-6 h-6" src="../../../../public/logo.png" alt="" />
+                    <img className="w-6 h-6" src="https://i.ibb.co/XbpcLS4/logo.png" alt="" />
                     <a className="normal-case font-semibold text-xl">Task Manager</a>
                 </div>
             </div>

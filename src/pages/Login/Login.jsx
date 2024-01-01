@@ -31,7 +31,7 @@ const Login = () => {
         <div className="mx-auto mt-32">
             <div className="flex-col lg:flex-col">
                 <div className="flex flex-col items-center">
-                    <img className="w-12 h-12 mb-5" src="../../../../public/logo.png" alt="" />
+                    <img className="w-12 h-12 mb-5" src="https://i.ibb.co/XbpcLS4/logo.png" alt="" />
                     <h1 className="text-4xl font-bold text-center">Login now!</h1>
                 </div>
                 <div className="card w-full max-w-md mx-auto">
