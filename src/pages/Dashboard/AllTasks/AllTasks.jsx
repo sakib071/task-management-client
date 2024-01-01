@@ -44,7 +44,7 @@ const AllTasks = () => {
     }
 
     return (
-        <div className="mt-5">
+        <div className="mt-5 m-10">
             <div className="flex text-lg mb-6">
                 <h3>Total tasks: <span className="font-bold">{users.length}</span></h3>
                 {/* <h3>Total Price: <span className="font-bold">${totalPrice}</span> </h3> */}

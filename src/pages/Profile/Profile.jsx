@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Profile = () => {
 
     const { user, logOut } = useAuth();
     const [userData, setUserData] = useState(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/login";
 
     useEffect(() => {
         fetch(`http://localhost:5000/users?email=${user?.email}`)
@@ -15,12 +19,14 @@ const Profile = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                navigate(from, { replace: true });
+            })
             .catch(error => console.log(error));
     }
 
     return (
-        <div className="min-h-screen pt-32">
+        <div className="pt-32">
             <h2 className="text-2xl text-center">
                 <span>Hi, Welcome </span>
                 {
