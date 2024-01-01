@@ -18,6 +18,9 @@ const Navbar = () => {
             user && <li className="hover:text-red-600"><Link to='/addTask'>Add Task</Link></li>
         } */}
         {
+            user && <li className="hover:text-red-600"><Link to='/tasks'>Tasks</Link></li>
+        }
+        {
             user && <li className="hover:text-red-600"><Link to='/dashboard/profile'>Dashboard</Link></li>
         }
         {

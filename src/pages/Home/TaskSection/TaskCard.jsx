@@ -1,5 +1,5 @@
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const TaskCard = ({ tasks, updateTasks }) => {
     const onToggleTaskCompletion = (taskId) => {
@@ -17,7 +17,9 @@ const TaskCard = ({ tasks, updateTasks }) => {
                     toast.success("Task completed!");
                 }
                 else {
-                    toast.info("Task marked as incomplete");
+                    toast('Task marked as incomplete!', {
+                        icon: '🔄',
+                    });
                 }
             }
         }
@@ -32,7 +34,6 @@ const TaskCard = ({ tasks, updateTasks }) => {
                     {tasks && tasks.length > 0 ? (
                         tasks.map((task) => (
                             <div key={task._id} className="p-2 rounded-md shadow-md">
-                                {/* <p>Task id: {task._id}</p> */}
                                 <div className="flex items-center gap-5">
                                     <input
                                         type="checkbox"
@@ -58,7 +59,7 @@ const TaskCard = ({ tasks, updateTasks }) => {
                     )}
                 </div>
             </div>
-            <ToastContainer />
+            <Toaster />
         </div>
     );
 };

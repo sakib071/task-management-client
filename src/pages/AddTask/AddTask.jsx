@@ -44,7 +44,7 @@ const AddTask = () => {
     };
 
     return (
-        <div className="pt-20">
+        <div className="pt-40 h-screen">
             <form onSubmit={handleSubmit(onSubmit)} className="w-1/3 mx-auto space-y-3 mt-10 p-5 rounded-md shadow-md">
                 {/* <h3 className=" text-2xl font-semibold">Add New Task</h3> */}
                 <div className="form-control w-full">

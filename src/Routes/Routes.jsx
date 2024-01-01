@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import AddTask from "../pages/AddTask/AddTask";
 import Profile from "../pages/Profile/Profile";
 import AllTasks from "../pages/Dashboard/AllTasks/AllTasks";
+import TaskSection from "../pages/Home/TaskSection/TaskSection";
 
 export const router = createBrowserRouter([
     {
@@ -33,8 +34,8 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
             },
             {
-                path: "profile",
-                element: <PrivateRoute><Profile></Profile></PrivateRoute>
+                path: "tasks",
+                element: <PrivateRoute><TaskSection></TaskSection></PrivateRoute>
             },
             {
                 path: "dashboard",
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
         path: 'dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            // {
+            //     path: "/",
+            //     element: <Home></Home>
+            // },
             {
                 path: "addTask",
                 element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
