@@ -11,7 +11,7 @@ const Dashboard = () => {
             <div className="w-64 bg-red-50 min-h-screen border-r-4 border-r-red-500 text-red-500 pt-32">
                 <ul className="menu p-4 text-lg space-y-3">
                     <li>
-                        <NavLink to="/dashboard/tasks">
+                        <NavLink to="/">
                             <FaHome></FaHome>
                             Home</NavLink>
                     </li>

@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
+import StaggeredDropDown from "../../components/Dropdown/Dropdown";
 
 const AddTask = () => {
     const { user } = useContext(AuthContext);
@@ -44,7 +45,7 @@ const AddTask = () => {
     };
 
     return (
-        <div className="pt-40">
+        <div className="pt-20 pb-40">
             <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 mx-auto space-y-3 mt-10 p-5 rounded-md shadow-md">
                 {/* <h3 className=" text-2xl font-semibold">Add New Task</h3> */}
                 <div className="form-control w-full">
@@ -63,26 +64,28 @@ const AddTask = () => {
                         required
                         className="input input-sm rounded-sm w-full" />
                 </div>
-                <div className="flex gap-6">
+                <div className="flex items-center">
                     <div className="form-control w-full">
-                        <select defaultValue="default" {...register('priority', { required: true })}
+                        {/* <select defaultValue="default" {...register('priority', { required: true })}
                             className="select select-sm rounded-sm">
                             <option disabled value="default">Set Priority</option>
                             <option value="Low">Low</option>
                             <option value="Moderate">Moderate</option>
                             <option value="High">High</option>
-                        </select>
+                        </select> */}
+                        <StaggeredDropDown></StaggeredDropDown>
                     </div>
+
                     <div className="form-control w-full">
-                        <select defaultValue="default" {...register('day', { required: true })}
+                        {/* <select defaultValue="default" {...register('day', { required: true })}
                             className="select select-sm rounded-sm">
                             <option disabled value="default">Set Day</option>
                             <option value="Today">Today</option>
                             <option value="Tomorrow">Tomorrow</option>
-                            <option value="Yesterday">Yesterday</option>
-                        </select>
+                        </select> */}
+                        <StaggeredDropDown></StaggeredDropDown>
                     </div>
-                    <button className="btn btn-sm bg-red-600 hover:bg-slate-900 text-white">
+                    <button className="btn btn-sm bg-red-500 hover:bg-slate-900 text-white">
                         Add Task
                     </button>
                 </div>

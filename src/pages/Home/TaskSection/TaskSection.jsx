@@ -27,7 +27,7 @@ const TaskSection = () => {
 
 
     return (
-        <div className="pt-10">
+        <div className="pt-32 h-screen overflow-hidden">
             <h3 className="text-3xl font-bold text-center border-b-4 w-fit mx-auto border-red-500">Tasks</h3>
             <div className="flex gap-5 mt-10 justify-center">
                 <div>
