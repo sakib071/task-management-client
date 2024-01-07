@@ -2,14 +2,29 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useContext } from "react";
-import StaggeredDropDown from "../../components/Dropdown/Dropdown";
+import { useContext, useState } from "react";
+import StaggeredDropDown from "../../components/DragnDrop/DragnDrop";
+
 
 const AddTask = () => {
-    const { user } = useContext(AuthContext);
+    const { user, flag, setFlag } = useContext(AuthContext);
     console.log(user?.email);
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
+    const priority = [
+        { 'id': 1, 'type': 'Low' },
+        { 'id': 2, 'type': 'Moderate' },
+        { 'id': 3, 'type': 'High' }
+    ]
+    const days = [
+        { 'id': 1, 'type': 'Today' },
+        { 'id': 2, 'type': 'Tomorrow' },
+    ]
+
+    const [selectedPriority, setSelectedPriority] = useState('');
+    const [selectedDay, setSelectedDay] = useState('');
+
+
     const onSubmit = async (data) => {
         try {
             const priorityColors = {
@@ -21,17 +36,18 @@ const AddTask = () => {
             const newTask = {
                 email: user.email,
                 title: data.title,
-                priority: data.priority,
+                priority: selectedPriority,
                 description: data.description,
-                day: data.day,
+                day: selectedDay,
                 completed: false,
-                ...priorityColors[data.priority],
+                ...priorityColors[selectedPriority],
             };
 
             const surveyRes = await axiosPublic.post("/tasks", newTask);
 
             if (surveyRes.data.insertedId) {
                 reset();
+                setFlag(!flag);
                 Swal.fire({
                     icon: "success",
                     title: `${data.title} is added to the To-do.`,
@@ -73,7 +89,7 @@ const AddTask = () => {
                             <option value="Moderate">Moderate</option>
                             <option value="High">High</option>
                         </select> */}
-                        <StaggeredDropDown></StaggeredDropDown>
+                        <StaggeredDropDown default='Set Priority' setItem={setSelectedPriority} priority={priority}></StaggeredDropDown>
                     </div>
 
                     <div className="form-control w-full">
@@ -83,7 +99,7 @@ const AddTask = () => {
                             <option value="Today">Today</option>
                             <option value="Tomorrow">Tomorrow</option>
                         </select> */}
-                        <StaggeredDropDown></StaggeredDropDown>
+                        <StaggeredDropDown default='Set Day' setItem={setSelectedDay} priority={days}></StaggeredDropDown>
                     </div>
                     <button className="btn btn-sm bg-red-500 hover:bg-slate-900 text-white">
                         Add Task

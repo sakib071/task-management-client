@@ -11,6 +11,7 @@ import AddTask from "../pages/AddTask/AddTask";
 import Profile from "../pages/Profile/Profile";
 import AllTasks from "../pages/Dashboard/AllTasks/AllTasks";
 import TaskSection from "../pages/Home/TaskSection/TaskSection";
+import DragnDrop from "../components/DragnDrop/DragnDrop";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
+            },
+            {
+                path: "/dragNDrop",
+                element: <DragnDrop></DragnDrop>
             },
             {
                 path: "login",

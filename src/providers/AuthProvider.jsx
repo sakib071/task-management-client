@@ -21,6 +21,8 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
     const axiosPublic = useAxiosPublic();
+    const [tasks, setTasks] = useState([]);
+    const [flag, setFlag] = useState(true);
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -73,6 +75,15 @@ const AuthProvider = ({ children }) => {
         };
     }, [axiosPublic]);
 
+    useEffect(() => {
+        fetch('http://localhost:5000/tasks')
+            .then(res => res.json())
+            .then(data => {
+                setTasks(data);
+                console.log('Calling from auth');
+            });
+    }, [flag]);
+
     const authInfo = {
         user,
         loading,
@@ -81,6 +92,10 @@ const AuthProvider = ({ children }) => {
         googleSignIn,
         logOut,
         updateUserProfile,
+        tasks,
+        setTasks,
+        flag,
+        setFlag
     };
     return (
         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

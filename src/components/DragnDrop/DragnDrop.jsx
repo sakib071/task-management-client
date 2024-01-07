@@ -5,15 +5,16 @@ import { FaFlag } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const StaggeredDropDown = () => {
+const StaggeredDropDown = (props) => {
     const [open, setOpen] = useState(false);
-    const [selected, setSelected] = useState('Set Day');
+    const [selected, setSelected] = useState(props.default);
     console.log(open);
+    console.log(props.priority);
 
     return (
         <div className="p-2 flex items-center justify-center bg-white">
             <motion.div animate={open ? "open" : "closed"} className="relative">
-                <button
+                <span
                     onClick={() => setOpen((pv) => !pv)}
                     className="flex items-center gap-2 px-3 py-1 rounded-md text-red-500 border-red-500 border-2 hover:bg-red-500 hover:text-red-50 transition-colors"
                 >
@@ -21,7 +22,7 @@ const StaggeredDropDown = () => {
                     <motion.span variants={iconVariants}>
                         <FiChevronDown />
                     </motion.span>
-                </button>
+                </span>
 
                 <motion.ul
                     initial={wrapperVariants.closed}
@@ -29,9 +30,22 @@ const StaggeredDropDown = () => {
                     style={{ originY: "top", translateX: "-50%" }}
                     className="flex flex-col gap-2 p-2 rounded-lg bg-white shadow-xl absolute top-[120%] left-[50%] w-32 overflow-hidden"
                 >
-                    <Option setOpen={setOpen} onSelect={setSelected} Icon={FaFlag} value="Edit" text="Low" />
-                    <Option setOpen={setOpen} onSelect={setSelected} Icon={FaFlag} value="Edit" text="Moderate" />
-                    <Option setOpen={setOpen} onSelect={setSelected} Icon={FaFlag} value="Edit" text="High" />
+                    {props?.priority?.map((option) => (
+                        <Option
+                            key={option.id}
+                            setOpen={setOpen}
+                            onSelect={() => {
+                                setSelected(option.type)
+                                props.setItem(option.type)
+                            }}
+                            Icon={FaFlag}
+                            value={option.id}
+                            text={option.type}
+                        />
+                    ))}
+                    {/* <Option setOpen={setOpen} onSelect={setSelected} Icon={FaFlag} value="Low" text="Low" />
+                    <Option setOpen={setOpen} onSelect={setSelected} Icon={FaFlag} value="Moderate" text="Moderate" />
+                    <Option setOpen={setOpen} onSelect={setSelected} Icon={FaFlag} value="High" text="High" /> */}
                 </motion.ul>
             </motion.div>
         </div>
